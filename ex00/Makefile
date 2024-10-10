@@ -6,7 +6,9 @@ OBJ_PATH	=	.obj/
 SRC_NAME	=	main.cpp \
 				Animal.cpp \
 				Cat.cpp \
-				Dog.cpp 
+				Dog.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp
 OBJ_NAME	=	$(SRC_NAME:.cpp=.o) 
 OBJ 		=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 SRC 		=	$(addprefix $(SRC_PATH), $(SRC_NAME))
