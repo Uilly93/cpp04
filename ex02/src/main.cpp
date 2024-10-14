@@ -27,18 +27,25 @@ int main()
 	for(int i = 0; i < 10; i++)
 		delete tab[i];
 
-	const Dog* newDog = new Dog("newdog");
-	const Dog* cpyDog;
+	std::cout << NGREEN << "message" << RESET << std::endl;
+	Dog* newDog = new Dog("newdog");
+	for (int i = 1; i < 101; i++)
+		newDog->changeIdea(i, "newdog");
+	newDog->printIdeas();
+	Dog* cpyDog;
 	cpyDog = newDog;
 	
 	cpyDog->makeSound();
+	for (int i = 1; i < 101; i++)
+		cpyDog->changeIdea(i, "cpydog");
 	cpyDog->printIdeas();
 	delete newDog;
 
 	std::cout << NGREEN << "---------Deep Copy---------" << RESET << std::endl;
 	Dog basic;
 	basic.setIdeas();
-	basic.changeIdea(100, "WOOF!");
+	for (int i = 1; i < 101; i++)
+		basic.changeIdea(i, "WOOF!");
 	{
 		Dog tmp = basic;
 		tmp.printIdeas();
