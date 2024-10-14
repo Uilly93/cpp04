@@ -20,11 +20,13 @@ class Cat : public Animal {
 		Cat &operator=(Cat const & rhs);
 
 		//Methods:
-		virtual void	makeSound() const ;
+		void	makeSound() const ;
 		void			set_type(std::string type);
 		std::string		getType() const ;
 		// void	printIdeas() const ;
-		void	getIdeas() const ;
+		void	printIdeas() const ;
+		void	setIdeas();
+		void	changeIdea(unsigned int i, std::string idea);
 
 	private:
 

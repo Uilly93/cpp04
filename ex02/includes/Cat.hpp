@@ -1,28 +1,30 @@
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 // #include <iostream>
 
-class Dog : public Animal {
+class Cat : public Animal {
 	public :
-	
+
 		//Constructor:
-		Dog();
-		Dog(std::string type);
-		Dog(const Dog & src);
+		Cat();
+		Cat(std::string type);
+		Cat(const Cat & src);
 
 		//Destructor:
-		virtual ~Dog();
+		virtual ~Cat();
+
 		//Operator Overload:
-		Dog &operator=(Dog const & rhs);
+		Cat &operator=(Cat const & rhs);
 
 		//Methods:
 		void	makeSound() const ;
 		void			set_type(std::string type);
 		std::string		getType() const ;
-		void cpyBrain();
+		void cpyBrain(Cat const & src);
+		// void	printIdeas() const ;
 		void	printIdeas() const ;
 		void	setIdeas();
 		void	changeIdea(unsigned int i, std::string idea);
