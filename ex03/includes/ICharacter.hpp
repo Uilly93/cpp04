@@ -2,9 +2,11 @@
 #define ICHARACTERE_HPP
 
 #include "AMetaria.hpp"
+// #include "Ice.hpp"
+// #include "Cure.hpp"
 #include <iostream>
 
-class ICharacter : public AMateria
+class ICharacter
 {
 	public:
 	virtual ~ICharacter() {}

@@ -35,7 +35,3 @@ AMateria& AMateria::operator=(AMateria const & src){
 std::string const & AMateria::getType() const{
 	return _type;
 };
-
-void use(ICharacter& target){
-	
-};

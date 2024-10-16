@@ -1,8 +1,12 @@
 #ifndef AMETARIA_HPP
 #define AMETARIA_HPP
 
+// #include "Ice.hpp"
 #include <iostream>
 #include <string>
+// #include "Ice.hpp"
+// #include "Cure.hpp"
+
 
 class ICharacter;
 
@@ -19,11 +23,11 @@ class AMateria {
 
 		//Operator Overload:
 
-		AMateria &operator=(AMateria const & src);
+		virtual AMateria &operator=(AMateria const & src);
 
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target) = 0;
 
 	protected:
 		AMateria();
