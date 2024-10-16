@@ -1,11 +1,14 @@
-NAME 		=	ScavTrap
+NAME 		=	metaria
 CXX 		=	clang++
-CPPFLAGS 	=	-Wall -Wextra -Werror -MMD -g3 -std=c++98 -gdwarf-4 -Wshadow -Wno-shadow
+CPPFLAGS 	=	-Wall -Wextra -Werror -MMD -g3 -std=c++98
 SRC_PATH	=	src/
 OBJ_PATH	=	.obj/
 SRC_NAME	=	main.cpp \
-				ScavTrap.cpp \
-				ClapTrap.cpp
+				AMetaria.cpp \
+				Character.cpp \
+				Cure.cpp \
+				Ice.cpp \
+				MetariaSource.cpp 
 OBJ_NAME	=	$(SRC_NAME:.cpp=.o) 
 OBJ 		=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 SRC 		=	$(addprefix $(SRC_PATH), $(SRC_NAME))

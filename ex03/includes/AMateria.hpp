@@ -1,12 +1,7 @@
 #ifndef AMETARIA_HPP
 #define AMETARIA_HPP
 
-// #include "Ice.hpp"
-#include <iostream>
 #include <string>
-// #include "Ice.hpp"
-// #include "Cure.hpp"
-
 
 class ICharacter;
 

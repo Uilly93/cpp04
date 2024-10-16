@@ -1,5 +1,6 @@
 #include "../includes/colors.hpp"
 #include "../includes/Cure.hpp"
+#include <iostream>
 
 //Constructors
 Cure::Cure() : AMateria() {

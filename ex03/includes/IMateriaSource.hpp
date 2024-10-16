@@ -1,10 +1,7 @@
 #ifndef IMATERIA_SOURCE_HPP
 #define IMATERIA_SOURCE_HPP
 
-#include <iostream>
-#include "AMetaria.hpp"
-#include "colors.hpp"
-
+#include "AMateria.hpp"
 
 class IMateriaSource {
 	public:

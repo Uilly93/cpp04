@@ -1,17 +1,15 @@
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include "AMetaria.hpp"
-#include "colors.hpp"
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
-#include <cstddef>
 
 class Character : public ICharacter {
 	public:
 
 		//Constructors
 		Character();
-		Character(std::string &name);
+		Character(std::string const &name);
 		Character(Character const & src);
 		
 		//Destructor

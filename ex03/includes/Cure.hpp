@@ -1,10 +1,7 @@
 #ifndef CURE_HPP
 #define CURE_HPP
 
-#include <iostream>
-// #include "AMetaria.hpp"
 #include "ICharacter.hpp"
-#include "colors.hpp"
 
 class Cure : public AMateria{
 	public:

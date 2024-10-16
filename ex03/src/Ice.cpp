@@ -1,5 +1,6 @@
 #include "../includes/colors.hpp"
 #include "../includes/Ice.hpp"
+#include <iostream>
 
 //Constructors
 Ice::Ice() : AMateria() {

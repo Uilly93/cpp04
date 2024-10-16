@@ -1,25 +1,22 @@
 #ifndef METARIA_SOURCE_HPP
 #define METARIA_SOURCE_HPP
 
-#include <cstddef>
-#include <iostream>
-#include "AMetaria.hpp"
+// #include "AMetaria.hpp"
 #include "IMateriaSource.hpp"
-#include "colors.hpp"
 
 
-class MetariaSource : IMateriaSource{
+class MateriaSource : public IMateriaSource{
 	public:
 		//Constructor
-		MetariaSource();
-		//MetariaSource(parametric constructor);
-		MetariaSource(const MetariaSource &src);
+		MateriaSource();
+		//MateriaSource(parametric constructor);
+		MateriaSource(const MateriaSource &src);
 
 		//Destructor
-		~MetariaSource();
+		~MateriaSource();
 
 		//Operator Overload
-		MetariaSource &operator=(const MetariaSource &src);
+		MateriaSource &operator=(const MateriaSource &src);
 
 		//Methods
 		void learnMateria(AMateria* m);

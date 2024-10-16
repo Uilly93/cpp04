@@ -1,33 +1,33 @@
 #include "../includes/colors.hpp"
-#include "../includes/MetariaSource.hpp"
+#include "../includes/MateriaSource.hpp"
 #include "../includes/Ice.hpp"
 #include "../includes/Cure.hpp"
-
+#include <iostream>
 
 //Constructors
-MetariaSource::MetariaSource() {
-	std::cout << GREEN << "MetariaSource Default Constructor called" << RESET << std::endl;
+MateriaSource::MateriaSource() {
+	std::cout << GREEN << "MateriaSource Default Constructor called" << RESET << std::endl;
 	for(int i = 0; i < 4; i++)
 		_materias[i] = NULL;
 	_nb = 0;
 }
 
-//MetariaSource::MetariaSource(parametric constructor){
-//    std::cout << GREEN << "MetariaSource Default Constructor called" << RESET << std::endl;
+//MateriaSource::MateriaSource(parametric constructor){
+//    std::cout << GREEN << "MateriaSource Default Constructor called" << RESET << std::endl;
 //}
 
-MetariaSource::MetariaSource(const MetariaSource &src) {
-	std::cout << BLUE << "MetariaSource Copy Constructor called" << RESET << std::endl;
+MateriaSource::MateriaSource(const MateriaSource &src) {
+	std::cout << BLUE << "MateriaSource Copy Constructor called" << RESET << std::endl;
 	*this = src;
 }
 //Destructor
-MetariaSource::~MetariaSource() {
-	std::cout << RED << "MetariaSource Destructor called " << RESET << std::endl;
+MateriaSource::~MateriaSource() {
+	std::cout << RED << "MateriaSource Destructor called " << RESET << std::endl;
 }
 
 //Operator Overload
-MetariaSource &MetariaSource::operator=(const MetariaSource &src) {
-	std::cout << PURPLE << "MetariaSource Copy Assignment Operator called" << RESET << std::endl;
+MateriaSource &MateriaSource::operator=(const MateriaSource &src) {
+	std::cout << PURPLE << "MateriaSource Copy Assignment Operator called" << RESET << std::endl;
 	if (this != &src) {
 		for(int i = 0; i < 4; i++){
 			if(src._materias[i] != NULL){
@@ -41,7 +41,7 @@ MetariaSource &MetariaSource::operator=(const MetariaSource &src) {
 }
 
 //Methods
-void MetariaSource::learnMateria(AMateria* m){
+void MateriaSource::learnMateria(AMateria* m){
 	if(_nb == 4){
 		std::cout << RED << "not enough space, cannot learn any other metaria" << RESET << std::endl;
 		return;
@@ -49,18 +49,19 @@ void MetariaSource::learnMateria(AMateria* m){
 	for(int i = 0; i < 4; i++){
 		if(_materias[i] != NULL){
 			_materias[i] = m;
-			_nb ++;
+			_nb++;
 			std::cout << NBLUE << m->getType() << " Metaria added to Metaria Source!" << RESET << std::endl;
 			break;
 		}
 	}
 }
 
-AMateria* MetariaSource::createMateria(std::string const & type){
+AMateria* MateriaSource::createMateria(std::string const & type){
 	if(type == "ice")
 		return new Ice;
 	else if(type == "cure")
 		return new Cure;
-	else
-	 	std::cout << RED << "This type doesn't matchs any existing type, the Metaria cannot be created" << RESET << std::endl;
+	std::cout << RED << "This type doesn't matchs any existing type, the Metaria cannot be created" << RESET << std::endl;
+	return NULL;
+
 }

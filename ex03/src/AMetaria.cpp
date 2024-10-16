@@ -1,5 +1,6 @@
-#include "../includes/AMetaria.hpp"
+#include "../includes/AMateria.hpp"
 #include "../includes/colors.hpp"
+#include <iostream>
 
 //Constructor:
 

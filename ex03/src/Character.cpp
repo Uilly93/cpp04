@@ -1,7 +1,9 @@
 #include "../includes/Character.hpp"
+#include <iostream>
+#include "../includes/colors.hpp"
 
 //Constructors
-Character::Character(){
+Character::Character() : ICharacter() {
 	std::cout << GREEN << "Character default constructor called" << RESET << std::endl;
 	_name = "default";
 	_filed_inventory = 0;
@@ -13,7 +15,7 @@ Character::Character(){
 	}
 }
 
-Character::Character(std::string &name){
+Character::Character(std::string const &name){
 	std::cout << GREEN << "Character constructor called" << RESET << std::endl;
 	_name = name;
 	_filed_inventory = 0;
