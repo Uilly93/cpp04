@@ -50,14 +50,14 @@ Character &Character::operator=(Character const &src){
 		this->_filed_inventory = src._filed_inventory;
 		this->_filed_floor = src._filed_floor;
 		for(int i = 0; i < 4; i++){
-			if(_inventory[i] != NULL){
-				delete _inventory[i];
+			// if(_inventory[i] != NULL){
+				// delete _inventory[i];
 				this->_inventory[i] = NULL;
-			}
-			if(_floor[i] != NULL){
-				delete _floor[i];
+			// }
+			// if(_floor[i] != NULL){
+				// delete _floor[i];
 				this->_floor[i] = NULL;
-			}
+			// }
 		}
 		for(int i = 0; i < 4; i++){
 			if(src._inventory[i] != NULL)
@@ -81,6 +81,10 @@ void Character::equip(AMateria* m){
 	}
 	if(_filed_inventory < 4){
 		for(int i = 0; i < 4; i++){
+			if(_inventory[i] == m){
+				std::cout << RED << "Metaria already equiped" << RESET << std::endl;
+				return;
+			}
 			if(_inventory[i] == NULL){
 				_inventory[_filed_inventory] = m;
 				break ;

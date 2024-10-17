@@ -83,6 +83,19 @@ int main()
 	me->unequip(-42);
 	me->unequip(42);
 
+	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
+	std::cout << NGREEN << "Testing deep copy" << RESET << std::endl;
+	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
+
+	Character bobby("deepcopy");
+	tmp = src->createMateria("ice");
+	bobby.equip(tmp);
+	Character cpy(bobby);
+	bobby.unequip(0);
+	cpy.use(0, bobby);
+	cpy.use(1, bobby);
+	cpy.use(2, bobby);
+	cpy.use(3, bobby);
 
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 	std::cout << NGREEN << "Destructors calling" << RESET << std::endl;
