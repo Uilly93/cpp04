@@ -23,6 +23,11 @@ MateriaSource::MateriaSource(const MateriaSource &src) {
 //Destructor
 MateriaSource::~MateriaSource() {
 	std::cout << RED << "MateriaSource Destructor called " << RESET << std::endl;
+	for(int i = 0; i < 4; i++){
+		if(_materias[i] != NULL){
+			delete _materias[i];
+		}
+	}
 }
 
 //Operator Overload
@@ -34,6 +39,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src) {
 				this->_materias[i] = src._materias[i]->clone();
 				delete _materias[i];
 			}
+			else
+				this->_materias[i] = NULL;
 		}
 		this->_nb = src._nb;
 	}
@@ -44,10 +51,11 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &src) {
 void MateriaSource::learnMateria(AMateria* m){
 	if(_nb == 4){
 		std::cout << RED << "not enough space, cannot learn any other metaria" << RESET << std::endl;
+		delete m;
 		return;
 	}
 	for(int i = 0; i < 4; i++){
-		if(_materias[i] != NULL){
+		if(_materias[i] == NULL){
 			_materias[i] = m;
 			_nb++;
 			std::cout << NBLUE << m->getType() << " Metaria added to Metaria Source!" << RESET << std::endl;
@@ -57,11 +65,12 @@ void MateriaSource::learnMateria(AMateria* m){
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type){
-	if(type == "ice")
-		return new Ice;
-	else if(type == "cure")
-		return new Cure;
-	std::cout << RED << "This type doesn't matchs any existing type, the Metaria cannot be created" << RESET << std::endl;
+	for (int i = 0; i < 4; i++) {
+        if (_materias[i] != 0 && _materias[i]->getType() == type) {
+            return _materias[i]->clone();
+        }
+    }
+	std::cout << RED << "This type doesn't matchs any learnt type, the Metaria cannot be created" << RESET << std::endl;
 	return NULL;
 
 }

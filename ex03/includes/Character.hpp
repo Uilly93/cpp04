@@ -13,7 +13,7 @@ class Character : public ICharacter {
 		Character(Character const & src);
 		
 		//Destructor
-		~Character();
+		virtual ~Character();
 
 		//Operator overload
 		Character &operator=(Character const &src);
@@ -28,7 +28,7 @@ class Character : public ICharacter {
 			std::string _name;
 			std::size_t	_filed_inventory;
 			AMateria	*_inventory[4];
-			AMateria	*_floor[20];
+			AMateria	*_floor[4];
 			std::size_t	_filed_floor;
 
 };

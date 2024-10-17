@@ -42,19 +42,22 @@ int main()
 	delete newDog;
 
 	std::cout << NGREEN << "---------Deep Copy---------" << RESET << std::endl;
-	Dog basic;
-	basic.setIdeas();
+	Dog* dog = new Dog("dooog");
+	Dog* ndog = dog;
+	ndog->makeSound();
+	dog->setIdeas();
 	for (int i = 1; i < 101; i++)
-		basic.changeIdea(i, "WOOF!");
+		dog->changeIdea(i, "WOOF!");
 	{
-		Dog tmp = basic;
-		tmp.printIdeas();
+		Dog* tmp = dog;
+		tmp->printIdeas();
 	}
 	std::cout << NGREEN << "---------Abstract class---------" << RESET << std::endl;
 	// const Animal* error_of_nature = new Animal();
 	const Animal* ThisIsOk = new Cat("Chat");
 	ThisIsOk->makeSound();
 	delete ThisIsOk;
+	delete ndog;
 
 	return 0;
 }
