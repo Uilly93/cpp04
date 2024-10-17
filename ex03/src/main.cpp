@@ -30,35 +30,36 @@ int main()
 	std::cout << NGREEN << "creating Character \"Georges\" and equiping it with 2 metarias:" << RESET << std::endl;
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 
-	ICharacter* meme = new Character("Georges");
+	ICharacter* me = new Character("Georges");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	meme->equip(tmp);
+	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	meme->equip(tmp);
+	me->equip(tmp);
 	tmp = src->createMateria("ice");
-	meme->equip(tmp);
+	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	meme->equip(tmp);
+	me->equip(tmp);
 
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
-	std::cout << NGREEN << "Trying to over equip Georges" << RESET << std::endl;
+	std::cout << NGREEN << "Trying to over equip Georges or creating invalid metaria" << RESET << std::endl;
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 
 	tmp = src->createMateria("ice");
-	meme->equip(tmp);
+	me->equip(tmp);
 	tmp = src->createMateria("cure");
-	meme->equip(tmp);
+	me->equip(tmp);
+	tmp = src->createMateria("fire");
+	me->equip(tmp);
+	tmp = src->createMateria("water");
+	me->equip(tmp);
 
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 	std::cout << NGREEN << "Georges Attacking new Character Bob:" << RESET << std::endl;
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 
 	ICharacter* bob = new Character("Bob");
-	ICharacter* me = new Character("me");
-	me = meme;
-	for(int i = 0; i < 4; i++)
-		meme->unequip(i);
+	me->use(0, *bob);
 	me->use(0, *bob);
 	me->use(1, *bob);
 	me->use(2, *bob);
@@ -69,14 +70,19 @@ int main()
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 
 	me->unequip(0);
+	me->unequip(0);
+	me->unequip(0);
 	me->use(0, *bob);
 
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
-	std::cout << NGREEN << "Georges Trying to attack Bob with invalid inventory items" << RESET << std::endl;
+	std::cout << NGREEN << "Georges Trying unequip or attack Bob with invalid inventory items" << RESET << std::endl;
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 
 	me->use(42, *bob);
 	me->use(-42, *bob);
+	me->unequip(-42);
+	me->unequip(42);
+
 
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 	std::cout << NGREEN << "Destructors calling" << RESET << std::endl;
