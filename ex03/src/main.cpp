@@ -88,17 +88,6 @@ int main()
 	std::cout << NGREEN << "Destructors calling" << RESET << std::endl;
 	std::cout << NPURPLE << "--------------------------------------------------------------" << RESET << std::endl;
 
-	// Character bobby = Character("bobby");
-
-	// bobby.equip(tmp);
-
-	// Character hobby = Character(bobby);
-
-	// bobby.unequip(0);
-
-	// hobby.use(0, bobby);
-
-
 	delete bob;
 	delete me;
 	delete src;
